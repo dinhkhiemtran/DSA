@@ -9,18 +9,18 @@ public class Stack {
 
     private int capacity;
 
-    private int[] arrayInt;
+    private int[] array;
 
     private int top;
 
     public Stack(int size) {
-        this.arrayInt = new int[size];
+        this.array = new int[size];
         this.capacity = size;
         this.top = -1;
     }
 
     public Boolean isFull() {
-        return this.top == this.arrayInt.length - 1;
+        return this.top == this.array.length - 1;
     }
 
     public boolean isEmpty() {
@@ -38,7 +38,7 @@ public class Stack {
                 System.exit(1);
             }
             System.out.println("Inserting: " + element);
-            arrayInt[++top] = element;
+            array[++top] = element;
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("Exception: " + "Input wrong type");
         } catch (Exception ex) {
@@ -51,7 +51,7 @@ public class Stack {
             while (!isFull()) {
                 System.out.print("Add elements(Int): ");
                 int elements = scanner.nextInt();
-                arrayInt[++top] = elements;
+                array[++top] = elements;
             }
             System.out.println("Full.");
         } catch (InputMismatchException inputMismatchException) {
@@ -59,15 +59,15 @@ public class Stack {
         } catch (Exception ex) {
             System.out.println("Exception: " + ex.getMessage());
         }
-        return arrayInt;
+        return array;
     }
 
     public int[] popAll() {
         while (!isEmpty()) {
-            int elements = this.arrayInt[top--];
+            int elements = this.array[top--];
             System.out.println("Element is popped: " + elements);
         }
-        return this.arrayInt;
+        return this.array;
     }
 
     public int pop() {
@@ -75,15 +75,15 @@ public class Stack {
             System.out.println("STACK EMPTY.");
             System.exit(1);
         }
-        int element = this.arrayInt[top--];
+        int element = this.array[top--];
         System.out.print("Element is popped: ");
         return element;
     }
 
     public void print() {
         System.out.print("Stack: ");
-        for (int i = 0; i < this.arrayInt.length; i++) {
-            System.out.print(arrayInt[i] + ", ");
+        for (int i = 0; i < this.top; i++) {
+            System.out.print(array[i] + ", ");
         }
         System.out.println();
     }
@@ -100,7 +100,6 @@ public class Stack {
         push(5);
         print();
         System.out.println(pop());
-        print();
         System.out.println("Size: " + size());
     }
 
