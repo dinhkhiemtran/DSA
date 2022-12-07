@@ -1,4 +1,4 @@
-package datastructures;
+package datastructures.queue;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ public class Queue {
 
     private int rear;
 
-    private int CAPACITY;
+    private  int CAPACITY;
 
     private String[] items;
 
@@ -39,7 +39,7 @@ public class Queue {
     public String[] enQueue(String element) {
         try {
             if (isFull()) {
-                System.out.println("Full.");
+                System.out.println("Simple queue is full.");
             } else {
                 if (!isFull()) {
                     if (front == -1) {
@@ -47,7 +47,7 @@ public class Queue {
                     }
                     ++rear;
                     items[rear] = element;
-                    System.out.println("Add " + element + " successfully");
+                    System.out.println(element + " has been enqueued successfully");
                 }
             }
         } catch (Exception ex) {
@@ -59,17 +59,17 @@ public class Queue {
     public String[] enQueue() {
         try {
             if (isFull()) {
-                System.out.println("Full.");
+                System.out.println("Simple queue is full.");
             } else {
                 while (!isFull()) {
                     if (front == -1) {
                         this.front = 0;
                     }
-                    System.out.print("Add elements(String): ");
+                    System.out.print("Enqueue: ");
                     String elements = scanner.next();
                     ++this.rear;
                     items[rear] = elements;
-                    System.out.println("Add " + elements + " successfully");
+                    System.out.println(elements + " has been enqueue successfully");
                 }
             }
         } catch (InputMismatchException inputMismatchException) {
@@ -80,47 +80,44 @@ public class Queue {
         return items;
     }
 
-    public String deQueue() {
-        String element = "";
+    public void deQueue() {
         if (isEmpty()) {
-            System.out.println("Queue is empty");
+            System.out.println("Simple queue is empty.");
         } else {
-            element = items[front];
+           String element = items[front];
             if (front >= rear) {
                 front = -1;
                 rear = -1;
             } else {
                 front++;
             }
-            System.out.println("Deleted -> " + element);
+            System.out.println(element + "has been dequeued successfully.");
         }
-        return element;
     }
 
-    public String deQueueAllElements(){
-        String elements = "";
-        while (!isEmpty()){
-            elements = items[front];
-            if (this.front >= this.rear){
-                this.front = -1;
-                this.rear = -1;
-            }else {
-                front++;
-            }
-            System.out.println("Elements are dequeued: " + elements);
-        }
+    public void deQueueAll(){
         if (isEmpty()){
-            return "Empty.";
+            System.out.println("Simple queue is empty.");
+        }else {
+            while (!isEmpty()){
+                String elements = items[front];
+                if (this.front >= this.rear){
+                    this.front = -1;
+                    this.rear = -1;
+                }else {
+                    front++;
+                }
+                System.out.println(elements + " has been dequeued successfully.");
+            }
         }
-        return elements;
     }
 
-    public void display(){
+    public void print(){
         int i;
         if (isEmpty()) {
-            System.out.println("Empty Queue.");
+            System.out.println("Simple queue is empty.");
         } else {
-            System.out.print("Items -> ");
+            System.out.print("Simple queue -> ");
             for (i = front; i <= rear; i++) {
                 System.out.print(items[i] + "  ");
             }
@@ -129,18 +126,25 @@ public class Queue {
         }
     }
 
+    public void display1(){
+        enQueue("Java");
+        enQueue("Javascript");
+        enQueue("Go");
+        print();
+        deQueue();
+        print();
+    }
+
+    public void display2(){
+        enQueue();
+        print();
+        deQueueAll();
+        print();
+    }
+
     public static void main(String[] args) {
         Queue queue = new Queue(3);
-        queue.enQueue();
-        queue.display();
-        queue.deQueueAllElements();
-        queue.display();
-
-        queue.enQueue("Java");
-        queue.enQueue("Javascript");
-        queue.enQueue("Go");
-        queue.display();
-        queue.deQueue();
-        queue.display();
+        queue.display1();
+        queue.display2();
     }
 }
