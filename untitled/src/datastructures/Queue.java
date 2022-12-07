@@ -89,7 +89,7 @@ public class Queue {
             if (front >= rear) {
                 front = -1;
                 rear = -1;
-            } /* Q has only one element, so we reset the queue after deleting it. */ else {
+            } else {
                 front++;
             }
             System.out.println("Deleted -> " + element);
