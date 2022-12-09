@@ -35,6 +35,15 @@ public class CompleteBinaryTree {
                 && checkComplete(root.right, 2 * index + 2, numberNodes));
     }
 
+    public void isCompleteBinaryTree(Node root, int index, int node_count){
+        if (checkComplete(root, index, node_count)){
+            System.out.println("The tree is a complete binary tree");
+        }
+        else{
+            System.out.println("The tree is not a complete binary tree");
+        }
+    }
+
     public static void main(String[] args) {
         CompleteBinaryTree completeBinaryTree = new CompleteBinaryTree();
         completeBinaryTree.root = new Node(1);
@@ -46,10 +55,6 @@ public class CompleteBinaryTree {
 
         int node_count = completeBinaryTree.countNumNodes(completeBinaryTree.root);
         int index = 0;
-
-        if (completeBinaryTree.checkComplete(completeBinaryTree.root, index, node_count))
-            System.out.println("The tree is a complete binary tree");
-        else
-            System.out.println("The tree is not a complete binary tree");
+        completeBinaryTree.isCompleteBinaryTree(completeBinaryTree.root, index, node_count);
     }
 }
