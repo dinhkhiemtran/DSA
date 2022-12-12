@@ -37,7 +37,7 @@ public class CompleteBinaryTree {
 
     public void isCompleteBinaryTree(Node root, int index, int node_count){
         if (checkComplete(root, index, node_count)){
-            System.out.println("The tree is a complete binary tree");
+            System.out.println("The tree is a complete binary tree.");
         }
         else{
             System.out.println("The tree is not a complete binary tree");
