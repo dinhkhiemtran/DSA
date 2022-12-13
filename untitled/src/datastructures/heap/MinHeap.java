@@ -1,13 +1,12 @@
 package datastructures.heap;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MinHeap {
 
-    private int[] Heap;
+    private final int[] Heap;
     private int index;
-    private int size;
+    private final int size;
 
     public MinHeap(int size) {
         this.size = size;
@@ -28,10 +27,7 @@ public class MinHeap {
     }
 
     private boolean isLeaf(int i) {
-        if (rightChild(i) >= size || leftChild(i) >= size) {
-            return true;
-        }
-        return false;
+        return (rightChild(i) >= size || leftChild(i) >= size) ? true : false ;
     }
 
     public void insert(int element) {
