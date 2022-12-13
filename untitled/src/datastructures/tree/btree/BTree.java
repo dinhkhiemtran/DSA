@@ -22,8 +22,6 @@ public class BTree {
             }
             return -1;
         }
-
-        ;
     }
 
     public BTree(int t) {
