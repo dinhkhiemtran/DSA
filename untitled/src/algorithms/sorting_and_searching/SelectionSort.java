@@ -71,7 +71,8 @@ public class SelectionSort {
     }
 
     public void display(){
-        print(selectionSort(inputElements()));
+        int[] arraySorted = selectionSort(inputElements());
+        print(arraySorted);
     }
 
     public static void main(String[] args) {
