@@ -27,7 +27,7 @@ public class MinHeap {
     }
 
     private boolean isLeaf(int i) {
-        return (rightChild(i) >= size || leftChild(i) >= size) ? true : false ;
+        return (rightChild(i) >= size || leftChild(i) >= size) ? true : false;
     }
 
     public void insert(int element) {

@@ -562,14 +562,14 @@ public class BPlusTree {
         try {
             System.out.print("Input a key to verify: ");
             int key = scanner.nextInt();
-            if (search(key) != null){
+            if (search(key) != null) {
                 System.out.println("Found.");
-            }else {
+            } else {
                 System.out.println("Not Found.");
             }
-        } catch (InputMismatchException inputMismatchException){
+        } catch (InputMismatchException inputMismatchException) {
             System.out.println("Exception: " + "Input wrong type.");
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Exception: " + ex.getMessage());
         }
     }

@@ -96,21 +96,21 @@ public class CircularQueue {
     public void deQueueAll() {
         int element = 0;
         try {
-            if (isEmpty()){
+            if (isEmpty()) {
                 System.out.println("Circular queue is empty.");
-            }else {
-                while (!isEmpty()){
+            } else {
+                while (!isEmpty()) {
                     element = this.items[this.front];
-                    if (this.front == this.rear){
+                    if (this.front == this.rear) {
                         this.front = -1;
                         this.rear = -1;
-                    }else {
+                    } else {
                         this.front = (this.front + 1) % CAPACITY;
                     }
                     System.out.println(element + " has been dequeued.");
                 }
             }
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Exception: " + ex.getMessage());
         }
     }

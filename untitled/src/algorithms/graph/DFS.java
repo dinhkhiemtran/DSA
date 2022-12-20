@@ -1,4 +1,4 @@
-package datastructures.graph;
+package algorithms.graph;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -9,27 +9,27 @@ public class DFS {
 
     private boolean isVisited[];
 
-    DFS(int vertices){
+    DFS(int vertices) {
         adjLists = new LinkedList[vertices];
         isVisited = new boolean[vertices];
 
-        for (int i = 0; i < vertices; i++){
+        for (int i = 0; i < vertices; i++) {
             adjLists[i] = new LinkedList<Integer>();
         }
     }
 
-    void addEdge(int src, int dest){
+    void addEdge(int src, int dest) {
         adjLists[src].add(dest);
     }
 
-    void DFS(int vertex){
+    void DFS(int vertex) {
         isVisited[vertex] = true;
         System.out.print(vertex + " ");
 
         Iterator<Integer> ite = adjLists[vertex].listIterator();
         while (ite.hasNext()) {
             int adj = ite.next();
-            if (!isVisited[adj]){
+            if (!isVisited[adj]) {
                 DFS(adj);
             }
         }

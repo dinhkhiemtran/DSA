@@ -48,9 +48,9 @@ public class Stack {
 
     public void push() {
         try {
-            if (isFull()){
+            if (isFull()) {
                 System.out.println("Stack is full.");
-            }else {
+            } else {
                 while (!isFull()) {
                     System.out.print("Add elements(Int): ");
                     int elements = scanner.nextInt();
@@ -66,9 +66,9 @@ public class Stack {
     }
 
     public void popAll() {
-        if (isEmpty()){
+        if (isEmpty()) {
             System.out.println("Stack is empty.");
-        }else {
+        } else {
             while (!isEmpty()) {
                 int elements = this.array[top--];
                 System.out.println(elements + " is popped successfully.");
@@ -86,9 +86,9 @@ public class Stack {
     }
 
     public void print() {
-        if (isEmpty()){
+        if (isEmpty()) {
             System.out.println("Stack is empty.");
-        }else {
+        } else {
             System.out.print("Stack: ");
             for (int i = 0; i < this.top; i++) {
                 System.out.print(array[i] + ", ");
@@ -108,7 +108,7 @@ public class Stack {
         System.out.println("Size: " + size());
     }
 
-    public void display2(){
+    public void display2() {
         push();
         print();
         popAll();

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class MaxHeap {
 
-    public void heapify(ArrayList<Integer> array, int i){
+    public void heapify(ArrayList<Integer> array, int i) {
         // Find the largest among root, left child and right child
         int largest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
-        if (left < array.size() && array.get(left) > array.get(largest)){
+        if (left < array.size() && array.get(left) > array.get(largest)) {
             largest = left;
         }
-        if (right < array.size() && array.get(right) > array.get(largest)){
+        if (right < array.size() && array.get(right) > array.get(largest)) {
             largest = right;
         }
 
-        if (largest != i){
+        if (largest != i) {
             int temp = array.get(largest);
             array.set(largest, array.get(i));
             array.set(i, temp);

@@ -5,7 +5,7 @@ public class RedBlackTree {
     private Node root;
     private Node TNULL;
 
-    class Node{
+    class Node {
         int data;
         Node parent;
         Node left;
@@ -14,8 +14,8 @@ public class RedBlackTree {
     }
 
     //Preorder
-    private void preOrderHelper(Node node){
-        if (node != null){
+    private void preOrderHelper(Node node) {
+        if (node != null) {
             System.out.println(node.data + " ");
             preOrderHelper(node.left);
             preOrderHelper(node.right);

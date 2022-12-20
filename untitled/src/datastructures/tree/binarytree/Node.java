@@ -19,8 +19,7 @@ class BinaryTree {
     }
 
     void postorder(Node node) {
-        if (node == null)
-            return;
+        if (node == null) return;
 
         // Traverse left
         postorder(node.left);
@@ -31,8 +30,7 @@ class BinaryTree {
     }
 
     void inorder(Node node) {
-        if (node == null)
-            return;
+        if (node == null) return;
 
         // Traverse left
         inorder(node.left);
@@ -43,8 +41,7 @@ class BinaryTree {
     }
 
     void preorder(Node node) {
-        if (node == null)
-            return;
+        if (node == null) return;
 
         // Traverse root
         System.out.print(node.item + "->");

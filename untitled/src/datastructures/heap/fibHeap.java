@@ -116,8 +116,7 @@ public class fibHeap {
             x.set_left(min.get_left());
             min.get_left().set_right(x);
             min.set_left(x);
-            if (x.get_key() < min.get_key())
-                min = x;
+            if (x.get_key() < min.get_key()) min = x;
         }
         n += 1;
     }
@@ -160,8 +159,7 @@ public class fibHeap {
             H2.min.set_left(t1);
             t2.set_right(H1.min);
         }
-        if (H1.min == null || (H2.min != null && H2.min.get_key() < H1.min.get_key()))
-            H3.min = H2.min;
+        if (H1.min == null || (H2.min != null && H2.min.get_key() < H1.min.get_key())) H3.min = H2.min;
         H3.n = H1.n + H2.n;
     }
 
@@ -192,8 +190,7 @@ public class fibHeap {
             z.get_left().set_right(z.get_right());
             z.get_right().set_left(z.get_left());
             z.set_child(null);
-            if (z == z.get_right())
-                this.min = null;
+            if (z == z.get_right()) this.min = null;
             else {
                 this.min = z.get_right();
                 this.consolidate();
@@ -264,13 +261,11 @@ public class fibHeap {
 
     // Search operation
     private void find(int key, node c) {
-        if (found != null || c == null)
-            return;
+        if (found != null || c == null) return;
         else {
             node temp = c;
             do {
-                if (key == temp.get_key())
-                    found = temp;
+                if (key == temp.get_key()) found = temp;
                 else {
                     node k = temp.get_child();
                     find(key, k);
@@ -293,16 +288,14 @@ public class fibHeap {
 
     // Decrease key operation
     private void decrease_key(node x, int k) {
-        if (k > x.get_key())
-            return;
+        if (k > x.get_key()) return;
         x.set_key(k);
         node y = x.get_parent();
         if (y != null && x.get_key() < y.get_key()) {
             cut(x, y);
             cascading_cut(y);
         }
-        if (x.get_key() < min.get_key())
-            min = x;
+        if (x.get_key() < min.get_key()) min = x;
     }
 
     // Cut operation
@@ -322,8 +315,7 @@ public class fibHeap {
     private void cascading_cut(node y) {
         node z = y.get_parent();
         if (z != null) {
-            if (y.get_mark() == false)
-                y.set_mark(true);
+            if (y.get_mark() == false) y.set_mark(true);
             else {
                 cut(y, z);
                 cascading_cut(z);

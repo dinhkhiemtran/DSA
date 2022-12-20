@@ -4,7 +4,7 @@ public class CompleteBinaryTree {
 
     Node root;
 
-    static class Node{
+    static class Node {
         int data;
         Node left, right;
 
@@ -15,15 +15,15 @@ public class CompleteBinaryTree {
     }
 
     //Count the number of nodes
-    public static int countNumNodes(Node root){
-        if (root == null){
+    public static int countNumNodes(Node root) {
+        if (root == null) {
             return 0;
         }
         return (1 + countNumNodes(root.left) + countNumNodes(root.right));
     }
 
     //Check for complete binary tree
-    public static boolean checkComplete(Node root, int index, int numberNodes){
+    public static boolean checkComplete(Node root, int index, int numberNodes) {
         // Check if the tree is empty
         if (root == null)
             return true;
@@ -35,11 +35,10 @@ public class CompleteBinaryTree {
                 && checkComplete(root.right, 2 * index + 2, numberNodes));
     }
 
-    public void isCompleteBinaryTree(Node root, int index, int node_count){
-        if (checkComplete(root, index, node_count)){
+    public void isCompleteBinaryTree(Node root, int index, int node_count) {
+        if (checkComplete(root, index, node_count)) {
             System.out.println("The tree is a complete binary tree.");
-        }
-        else{
+        } else {
             System.out.println("The tree is not a complete binary tree");
         }
     }

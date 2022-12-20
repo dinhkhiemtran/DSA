@@ -11,7 +11,7 @@ public class Queue {
 
     private int rear;
 
-    private  int CAPACITY;
+    private int CAPACITY;
 
     private String[] items;
 
@@ -84,7 +84,7 @@ public class Queue {
         if (isEmpty()) {
             System.out.println("Simple queue is empty.");
         } else {
-           String element = items[front];
+            String element = items[front];
             if (front >= rear) {
                 front = -1;
                 rear = -1;
@@ -95,16 +95,16 @@ public class Queue {
         }
     }
 
-    public void deQueueAll(){
-        if (isEmpty()){
+    public void deQueueAll() {
+        if (isEmpty()) {
             System.out.println("Simple queue is empty.");
-        }else {
-            while (!isEmpty()){
+        } else {
+            while (!isEmpty()) {
                 String elements = items[front];
-                if (this.front >= this.rear){
+                if (this.front >= this.rear) {
                     this.front = -1;
                     this.rear = -1;
-                }else {
+                } else {
                     front++;
                 }
                 System.out.println(elements + " has been dequeued successfully.");
@@ -112,7 +112,7 @@ public class Queue {
         }
     }
 
-    public void print(){
+    public void print() {
         int i;
         if (isEmpty()) {
             System.out.println("Simple queue is empty.");
@@ -126,7 +126,7 @@ public class Queue {
         }
     }
 
-    public void display1(){
+    public void display1() {
         enQueue("Java");
         enQueue("Javascript");
         enQueue("Go");
@@ -135,7 +135,7 @@ public class Queue {
         print();
     }
 
-    public void display2(){
+    public void display2() {
         enQueue();
         print();
         deQueueAll();

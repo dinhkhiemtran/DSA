@@ -26,10 +26,8 @@ public class FullBinaryTree {
         fullBinaryTree.root.left.right = new NodeOfFullBinaryTree(5);
         fullBinaryTree.root.right.left = new NodeOfFullBinaryTree(6);
         fullBinaryTree.root.right.right = new NodeOfFullBinaryTree(7);
-        if (fullBinaryTree.isFullBinaryTree(fullBinaryTree.root))
-            System.out.print("The tree is a full binary tree.");
-        else
-            System.out.print("The tree is not a full binary tree.");
+        if (fullBinaryTree.isFullBinaryTree(fullBinaryTree.root)) System.out.print("The tree is a full binary tree.");
+        else System.out.print("The tree is not a full binary tree.");
     }
 }
 

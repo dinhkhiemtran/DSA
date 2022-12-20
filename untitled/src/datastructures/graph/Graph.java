@@ -13,10 +13,10 @@ public class Graph {
     private LinkedList<Integer> adj[];
 
     //Create a graph
-    public Graph(int size){
+    public Graph(int size) {
         Vertex = size;
         adj = new LinkedList[size];
-        for (int i = 0 ; i < size; ++i){
+        for (int i = 0; i < size; ++i) {
             adj[i] = new LinkedList<>();
         }
     }

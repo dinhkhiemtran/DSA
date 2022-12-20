@@ -4,25 +4,25 @@ public class AVLTree {
 
     Node root;
 
-    class Node{
+    class Node {
         int item, height;
         Node left, right;
 
-        Node(int data){
+        Node(int data) {
             this.item = data;
             this.height = 1;
         }
     }
 
-    int height(Node node){
-        if (node == null){
+    int height(Node node) {
+        if (node == null) {
             return 0;
         }
         return node.height;
     }
 
-    int max(int a, int b){
-        return (a > b) ? a: b;
+    int max(int a, int b) {
+        return (a > b) ? a : b;
     }
 
     Node rightRotate(Node y) {

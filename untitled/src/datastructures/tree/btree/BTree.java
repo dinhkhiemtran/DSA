@@ -160,7 +160,7 @@ public class BTree {
                 Node pred = x.child[pos];
                 int predKey = 0;
                 if (pred.n >= T) {
-                    for (;;) {
+                    for (; ; ) {
                         if (pred.leaf) {
                             System.out.println(pred.n);
                             predKey = pred.key[pred.n - 1];
@@ -179,7 +179,7 @@ public class BTree {
                     int nextKey = nextNode.key[0];
                     if (!nextNode.leaf) {
                         nextNode = nextNode.child[0];
-                        for (;;) {
+                        for (; ; ) {
                             if (nextNode.leaf) {
                                 nextKey = nextNode.key[nextNode.n - 1];
                                 break;

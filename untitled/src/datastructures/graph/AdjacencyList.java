@@ -7,7 +7,7 @@ public class AdjacencyList {
     private static final int VERTEX = 5;
 
     public static void addEdge(ArrayList<ArrayList<Integer>> adjacencyMatrix,
-                               int s, int d){
+                               int s, int d) {
         adjacencyMatrix.get(s).add(d);
         adjacencyMatrix.get(d).add(s);
     }

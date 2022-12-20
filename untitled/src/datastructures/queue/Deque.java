@@ -23,23 +23,23 @@ public class Deque {
         return front == 0 && rear == size - 1 || front == rear + 1;
     }
 
-    public boolean isEmpty(){
-        if (front == -1){
+    public boolean isEmpty() {
+        if (front == -1) {
             return true;
         }
         return false;
     }
 
-    public void insertFront(int element){
-        if (isFull()){
+    public void insertFront(int element) {
+        if (isFull()) {
             System.out.println("Deque is full.");
-        }else {
-            if (front == -1){
+        } else {
+            if (front == -1) {
                 front = 0;
                 rear = 0;
             } else if (front == 0) {
                 front = size - 1;
-            }else {
+            } else {
                 front = front - 1;
             }
             array[front] = element;
@@ -47,39 +47,38 @@ public class Deque {
         }
     }
 
-    public void insertRear(int elements){
-        if (isFull()){
+    public void insertRear(int elements) {
+        if (isFull()) {
             System.out.println("Deque is full.");
-        }else {
-            if (front == -1){
+        } else {
+            if (front == -1) {
                 front = 0;
                 rear = 0;
             } else if (rear == size - 1) {
                 rear = 0;
-            }else {
+            } else {
                 rear = rear + 1;
             }
             array[rear] = elements;
         }
     }
 
-    public void deleteFront(){
-        if (isEmpty()){
+    public void deleteFront() {
+        if (isEmpty()) {
             System.out.println("Deque is empty.");
-        }else {
-            if (front == rear){
+        } else {
+            if (front == rear) {
                 front = -1;
                 rear = -1;
-            } else if (front == size -1) {
+            } else if (front == size - 1) {
                 front = 0;
-            }
-            else {
+            } else {
                 front = front + 1;
             }
         }
     }
 
-    public void deleteRear(){
+    public void deleteRear() {
         if (isEmpty()) {
             System.out.println(" Underflow");
             return;
@@ -110,7 +109,7 @@ public class Deque {
         return array[rear];
     }
 
-    public void display(){
+    public void display() {
 
         System.out.println("Insert element at rear end : 12 ");
         insertRear(12);
