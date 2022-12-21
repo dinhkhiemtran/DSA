@@ -39,12 +39,14 @@ public class InsertionSort {
     }
 
     private void print(int[] array) {
-        int lengthOfArray = array.length;
-        System.out.print("Sorted: ");
-        for (int i = 0; i < lengthOfArray; i++) {
-            System.out.print(array[i] + " ");
+        if (array != null) {
+            int lengthOfArray = array.length;
+            System.out.print("Sorted: ");
+            for (int i = 0; i < lengthOfArray; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
     public void display() {
