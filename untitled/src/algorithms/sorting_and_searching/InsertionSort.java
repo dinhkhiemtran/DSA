@@ -1,5 +1,6 @@
 package algorithms.sorting_and_searching;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InsertionSort {
@@ -7,8 +8,16 @@ public class InsertionSort {
     private static Scanner scanner = new Scanner(System.in);
 
     public int createLengthOfArray() {
-        System.out.print("Input a length of array: ");
-        int lengthOfArray = scanner.nextInt();
+        int lengthOfArray = 0;
+        try {
+            System.out.print("Input a length of array: ");
+            lengthOfArray = scanner.nextInt();
+            return lengthOfArray;
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Exception: " + "Input wrong type.");
+        } catch (Exception exception) {
+            System.out.println("Exception: " + exception.getMessage());
+        }
         return lengthOfArray;
     }
 
