@@ -1,4 +1,4 @@
-package algorithms.sorting_and_searching;
+package algorithms.sorting_and_searching.sorting;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
