@@ -57,7 +57,7 @@ public class LinearSearch {
         int size = array.length;
         for (int i = 0; i < size; i++) {
             if (array[i] == searchPointer) {
-                System.out.print("Position: " );
+                System.out.print("Position: ");
                 return i;
             }
         }
