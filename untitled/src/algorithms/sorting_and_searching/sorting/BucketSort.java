@@ -13,8 +13,9 @@ public class BucketSort {
         float[] arr = addElement();
         int n = arr.length;
         try {
-            if (n <= 0)
+            if (n <= 0){
                 return;
+            }
             @SuppressWarnings("unchecked")
             ArrayList<Float>[] bucket = new ArrayList[n];
 

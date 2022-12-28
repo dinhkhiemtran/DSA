@@ -39,16 +39,16 @@ public class LinearSearch {
     }
 
     private int search() {
-        int pointer = 0;
+        int keySearch = 0;
         try {
             System.out.print("Search: ");
-            pointer = scanner.nextInt();
+            keySearch = scanner.nextInt();
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("Exception: " + "Input wrong type.");
         } catch (Exception exception) {
             System.out.println("Exception: " + exception.getMessage());
         }
-        return pointer;
+        return keySearch;
     }
 
     private int linearSearch() {
