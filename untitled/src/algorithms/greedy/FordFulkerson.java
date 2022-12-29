@@ -18,12 +18,12 @@ public class FordFulkerson {
         p[s] = -1;
 
         while (queue.size() != 0) {
-            int u = queue.poll();
-            for (int v = 0; v < VERTEX; v++) {
-                if (visited[v] == false && Graph[u][v] > 0){
-                    queue.add(v);
-                    p[v] = u;
-                    visited[v] = true;
+            int update = queue.poll();
+            for (int vertex = 0; vertex < VERTEX; vertex++) {
+                if (visited[vertex] == false && Graph[update][vertex] > 0){
+                    queue.add(vertex);
+                    p[vertex] = update;
+                    visited[vertex] = true;
                 }
             }
         }
@@ -32,12 +32,12 @@ public class FordFulkerson {
 
     //Applying ford-fulkerson algorithm
     private  int fordFulkerson(int graph[][], int s, int t){
-        int u, v;
+        int update, vertex;
         int Graph[][] = new int[VERTEX][VERTEX];
 
-        for (u = 0; u < VERTEX; u++){
-            for (v = 0 ; v < VERTEX; v++){
-                Graph[u][v] = graph[u][v];
+        for (update = 0; update < VERTEX; update++){
+            for (vertex = 0 ; vertex < VERTEX; vertex++){
+                Graph[update][vertex] = graph[update][vertex];
             }
         }
 
@@ -46,15 +46,15 @@ public class FordFulkerson {
 
         while (breathFirstSearch(Graph, s, t, p)) {
             int path_flow = Integer.MAX_VALUE;
-            for (v = t; v != s; v = p[v]) {
-                u = p[v];
-                path_flow = Math.min(path_flow, Graph[u][v]);
+            for (vertex = t; vertex != s; vertex = p[vertex]) {
+                update = p[vertex];
+                path_flow = Math.min(path_flow, Graph[update][vertex]);
             }
 
-            for (v = t; v != s; v = p[v]) {
-                u = p[v];
-                Graph[u][v] -= path_flow;
-                Graph[v][u] += path_flow;
+            for (vertex = t; vertex != s; vertex = p[vertex]) {
+                update = p[vertex];
+                Graph[update][vertex] -= path_flow;
+                Graph[vertex][update] += path_flow;
             }
 
             // Adding the path flows
