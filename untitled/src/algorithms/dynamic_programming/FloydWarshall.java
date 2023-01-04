@@ -1,4 +1,4 @@
-package algorithms.dynamic_programming.floywarshall;
+package algorithms.dynamic_programming;
 
 public class FloydWarshall {
 
