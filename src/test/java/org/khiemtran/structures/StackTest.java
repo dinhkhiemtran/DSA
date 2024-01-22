@@ -54,4 +54,13 @@ class StackTest {
     stack.display();
     Assertions.assertEquals(0, stack.length());
   }
+
+  @Test
+  @DisplayName("Test Stack is Full")
+  public void testStackFull() {
+    Stack stack = new Stack(1);
+    stack.push(1);
+    stack.push(2);
+    Assertions.assertEquals(1, stack.length());
+  }
 }

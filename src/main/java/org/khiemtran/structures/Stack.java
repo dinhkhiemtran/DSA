@@ -2,7 +2,7 @@ package org.khiemtran.structures;
 
 public class Stack {
   private int top;
-  private int[] array;
+  private final int[] array;
   private int size;
 
   public Stack(int capacity) {
