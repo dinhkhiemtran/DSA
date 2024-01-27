@@ -1,4 +1,4 @@
-package org.khiemtran.structures;
+package org.khiemtran.structures.linked_list;
 
 public class SingleLinkedList {
   public static class Node {
