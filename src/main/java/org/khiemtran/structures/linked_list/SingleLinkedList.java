@@ -5,6 +5,9 @@ public class SingleLinkedList {
     private int data;
     private Node next;
 
+    public Node() {
+    }
+
     public int getData() {
       return data;
     }
@@ -25,28 +28,23 @@ public class SingleLinkedList {
   private Node head;
   private int size;
 
-  public SingleLinkedList() {
-    this.head = null;
-    this.size = 0;
-  }
-
   private boolean isEmpty() {
     return size == 0;
   }
 
-  public int length() {
-    return size;
-  }
-
-  public Node peak() {
+  public Node getHead() {
     return head;
   }
 
-  public void add(int data) {
+  public int getSize() {
+    return size;
+  }
+
+  public void add(int element) {
     Node newNode = new Node();
-    newNode.setData(data);
+    newNode.setData(element);
     if (isEmpty()) {
-      head = newNode;
+      this.head = newNode;
     } else {
       Node current = head;
       while (current.getNext() != null) {
@@ -54,122 +52,57 @@ public class SingleLinkedList {
       }
       current.setNext(newNode);
     }
-    size++;
+    this.size++;
   }
 
-  public void insert(int data, int index) {
-    if (index == 0 || index == length()) {
-      add(data);
-    } else {
-      Node newNode = new Node();
-      newNode.setData(data);
-      Node current = head;
-      int currentIndex = 0;
-      while (current != null && currentIndex < index - 1) {
-        current = current.getNext();
-        currentIndex++;
-      }
-      if (current == null) {
-        System.out.println("Index out of Single Linked List");
-      } else {
-        newNode.setNext(current.getNext());
-        current.setNext(newNode);
-        size++;
-      }
-    }
-  }
-
-  public void insertHead(int data) {
+  public void addHead(int element) {
     Node newNode = new Node();
-    newNode.setData(data);
+    newNode.setData(element);
     if (isEmpty()) {
+      this.head = newNode;
+    } else {
+      Node current = head;
+      newNode.setNext(current);
       head = newNode;
-      size++;
-    } else {
-      newNode.setNext(head);
-      head = newNode;
-      size++;
     }
+    this.size++;
   }
 
-  public int removeLastNode() {
-    if (isEmpty()) {
-      System.out.println("Single Linked List is empty.");
-      return -1;
-    }
-    if (length() == 1) {
-      return processOnlyOneDataRemains();
+  public void insert(int element, int index) {
+    if (index == size || isEmpty()) {
+      add(element);
     } else {
-      Node current = head;
-      while (current.getNext().getNext() != null) {
-        current = current.getNext();
-      }
-      int data = current.getNext().getData();
-      current.setNext(null);
-      size--;
-      return data;
-    }
-  }
-
-  public int removeFirstNode() {
-    if (isEmpty()) {
-      System.out.println("Single Linked List is empty.");
-      return -1;
-    }
-    if (length() == 1) {
-      return processOnlyOneDataRemains();
-    } else {
-      Node current = head;
-      head = head.getNext();
-      int data = current.getData();
-      current.setNext(null);
-      size--;
-      return data;
-    }
-  }
-
-  public int removeAtIndex(int index) {
-    if (isEmpty()) {
-      System.out.println("Single Linked List is empty");
-      return -1;
-    }
-    if (index == 0) {
-      return removeFirstNode();
-    } else {
-      Node current = head;
-      int currentIndex = 0;
-      while (current != null && currentIndex < index - 1) {
-        current = current.getNext();
-        currentIndex++;
-      }
-      if (current == null) {
-        System.out.println("Index out of Single Linked List");
-        return -1;
+      if (index == 0) {
+        addHead(element);
       } else {
-        int data = current.getNext().getData();
-        current.setNext(current.getNext().getNext());
-        size--;
-        return data;
+        Node newNode = new Node();
+        newNode.setData(element);
+        Node current = head;
+        int currentIndex = 0;
+        while (current != null && currentIndex < index - 1) {
+          current = current.getNext();
+          currentIndex++;
+        }
+        if (current != null) {
+          newNode.setNext(current.getNext());
+          current.setNext(newNode);
+          size++;
+        }
       }
     }
-  }
-
-  private int processOnlyOneDataRemains() {
-    int data = head.getData();
-    head = null;
-    size--;
-    return data;
   }
 
   public void display() {
-    Node current = head;
-    StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append("head->");
-    while (current != null) {
-      stringBuilder.append(current.getData()).append("->");
-      current = current.getNext();
+    if (isEmpty()) {
+      System.out.println("Linked List is empty.");
+    } else {
+      Node current = head;
+      System.out.print("head->");
+      while (current != null) {
+        System.out.print(current.getData() + "->");
+        current = current.getNext();
+      }
+      System.out.println("null");
     }
-    stringBuilder.append("null");
-    System.out.println(stringBuilder);
   }
 }

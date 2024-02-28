@@ -1,121 +1,107 @@
 package org.khiemtran.structures.linked_list;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.khiemtran.structures.linked_list.SingleLinkedList;
 
 class SingleLinkedListTest {
+  private SingleLinkedList singleLinkedList;
+
   @Test
-  @DisplayName("Length")
-  public void testLength() {
-    SingleLinkedList singleLinkedList = new SingleLinkedList();
-    Assertions.assertEquals(0, singleLinkedList.length());
+  public void testEmpty() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.display();
+    Assertions.assertEquals(0, singleLinkedList.getSize());
+  }
+
+  @Test
+  public void testAddElementWhenLinkedListEmpty() {
+    singleLinkedList = new SingleLinkedList();
     singleLinkedList.add(1);
     singleLinkedList.display();
-    Assertions.assertEquals(1, singleLinkedList.length());
+    Assertions.assertEquals(1, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(1, singleLinkedList.getSize());
   }
 
   @Test
-  @DisplayName("Peak")
-  public void testPeak() {
-    SingleLinkedList linkedList = new SingleLinkedList();
-    linkedList.add(1);
-    linkedList.add(2);
-    Assertions.assertEquals(1, linkedList.peak().getData());
-  }
-
-  @Test
-  @DisplayName("Add elements")
-  public void testAddElementIntoSingleLinkedList() {
-    SingleLinkedList linkedList = new SingleLinkedList();
-    linkedList.add(1);
-    linkedList.add(2);
-    linkedList.add(3);
-    linkedList.add(4);
-    linkedList.add(5);
-    Assertions.assertEquals(5, linkedList.length());
-    linkedList.display();
-  }
-
-  @Test
-  @DisplayName("Insert elements")
-  public void testInsertElements() {
-    SingleLinkedList singleLinkedList = new SingleLinkedList();
-    singleLinkedList.add(1);
-    singleLinkedList.add(5);
-    singleLinkedList.insert(2,1);
-    singleLinkedList.insert(3,2);
-    singleLinkedList.insert(4,3);
-    singleLinkedList.insert(6, 5);
-    Assertions.assertEquals(6, singleLinkedList.length());
-    singleLinkedList.display();
-  }
-
-  @Test
-  @DisplayName("Insert Head")
-  public void testInsertHead() {
-    SingleLinkedList linkedList = new SingleLinkedList();
-    linkedList.add(2);
-    linkedList.insertHead(1);
-    Assertions.assertEquals(2, linkedList.length());
-    linkedList.display();
-  }
-
-  @Test
-  @DisplayName("Remove last element")
-  public void testRemoveLastNode() {
-    SingleLinkedList singleLinkedList = new SingleLinkedList();
+  public void testAddElementWhenLinkedListNotEmpty() {
+    singleLinkedList = new SingleLinkedList();
     singleLinkedList.add(1);
     singleLinkedList.add(2);
     singleLinkedList.add(3);
-    Assertions.assertEquals(3, singleLinkedList.removeLastNode());
     singleLinkedList.display();
-    Assertions.assertEquals(2, singleLinkedList.removeLastNode());
-    singleLinkedList.display();
-    Assertions.assertEquals(1, singleLinkedList.removeLastNode());
-    singleLinkedList.display();
-    Assertions.assertEquals(-1, singleLinkedList.removeLastNode());
-    singleLinkedList.display();
+    Assertions.assertEquals(1, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(2, singleLinkedList.getHead().getNext().getData());
+    Assertions.assertEquals(3, singleLinkedList.getHead().getNext().getNext().getData());
+    Assertions.assertEquals(3, singleLinkedList.getSize());
   }
 
   @Test
-  @DisplayName("Remove first element")
-  public void testRemoveFirstNode() {
-    SingleLinkedList linkedList = new SingleLinkedList();
-    linkedList.add(1);
-    linkedList.add(2);
-    Assertions.assertEquals(1, linkedList.removeFirstNode());
-    linkedList.display();
-    Assertions.assertEquals(2, linkedList.removeFirstNode());
-    linkedList.display();
-    Assertions.assertEquals(-1, linkedList.removeFirstNode());
-    linkedList.display();
+  public void testAddHeadWhenEmpty() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.addHead(1);
+    Assertions.assertEquals(1, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(1, singleLinkedList.getSize());
   }
 
   @Test
-  @DisplayName("Remove at index")
-  public void testRemoveAtIndex() {
-    SingleLinkedList linkedList = new SingleLinkedList();
-    linkedList.add(1);
-    linkedList.add(2);
-    linkedList.add(3);
-    linkedList.add(4);
-    linkedList.add(5);
-    System.out.println(linkedList.length());
-    Assertions.assertEquals(4, linkedList.removeAtIndex(3));
-    linkedList.display();
-    Assertions.assertEquals(2, linkedList.removeAtIndex(1));
-    linkedList.display();
-    Assertions.assertEquals(3, linkedList.removeAtIndex(1));
-    linkedList.display();
-    Assertions.assertEquals(5, linkedList.removeAtIndex(1));
-    linkedList.display();
-    Assertions.assertEquals(1, linkedList.removeAtIndex(0));
-    linkedList.display();
-    linkedList.add(1);
-    Assertions.assertEquals(-1, linkedList.removeAtIndex(6));
-    Assertions.assertEquals(1, linkedList.removeAtIndex(0));
-    Assertions.assertEquals(-1, linkedList.removeAtIndex(1));
+  public void testAddHeadNotEmpty() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.addHead(3);
+    singleLinkedList.addHead(2);
+    singleLinkedList.addHead(1);
+    singleLinkedList.addHead(0);
+    singleLinkedList.display();
+    Assertions.assertEquals(0, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(1, singleLinkedList.getHead().getNext().getData());
+    Assertions.assertEquals(2, singleLinkedList.getHead().getNext().getNext().getData());
+    Assertions.assertEquals(3, singleLinkedList.getHead().getNext().getNext().getNext().getData());
+    Assertions.assertEquals(4, singleLinkedList.getSize());
+  }
+
+  @Test
+  public void testInsertEmpty() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.insert(1, 0);
+    Assertions.assertEquals(1, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(1, singleLinkedList.getSize());
+  }
+
+  @Test
+  public void testInsetEqualSize() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.add(1);
+    singleLinkedList.add(2);
+    singleLinkedList.insert(3, 2);
+    Assertions.assertEquals(3, singleLinkedList.getHead().getNext().getNext().getData());
+    Assertions.assertEquals(3, singleLinkedList.getSize());
+  }
+
+  @Test
+  public void testInsetIndexZero() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.add(1);
+    singleLinkedList.add(2);
+    singleLinkedList.insert(0, 0);
+    Assertions.assertEquals(0, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(3, singleLinkedList.getSize());
+  }
+
+  @Test
+  public void testInsert() {
+    singleLinkedList = new SingleLinkedList();
+    singleLinkedList.add(0);
+    singleLinkedList.add(5);
+    singleLinkedList.insert(1,1);
+    singleLinkedList.insert(2,2);
+    singleLinkedList.insert(3,3);
+    singleLinkedList.insert(4,4);
+    singleLinkedList.display();
+    Assertions.assertEquals(0, singleLinkedList.getHead().getData());
+    Assertions.assertEquals(1, singleLinkedList.getHead().getNext().getData());
+    Assertions.assertEquals(2, singleLinkedList.getHead().getNext().getNext().getData());
+    Assertions.assertEquals(3, singleLinkedList.getHead().getNext().getNext().getNext().getData());
+    Assertions.assertEquals(4, singleLinkedList.getHead().getNext().getNext().getNext().getNext().getData());
+    Assertions.assertEquals(5, singleLinkedList.getHead().getNext().getNext().getNext().getNext().getNext().getData());
+    Assertions.assertEquals(6, singleLinkedList.getSize());
   }
 }
