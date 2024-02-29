@@ -92,6 +92,69 @@ public class SingleLinkedList {
     }
   }
 
+  public int remove() {
+    int data;
+    if (isEmpty()) {
+      System.out.println("Linked List is empty.");
+      return -1;
+    }
+    if (size == 1) {
+      data = head.getData();
+      head.setNext(null);
+    } else {
+      Node current = head;
+      while (current.getNext().getNext() != null) {
+        current = current.getNext();
+      }
+      data = current.getNext().getData();
+      current.setNext(null);
+    }
+    size--;
+    return data;
+  }
+
+  public int removeHead() {
+    int data;
+    if (isEmpty()) {
+      System.out.println("Linked List is empty.");
+      return -1;
+    }
+    if (size == 1) {
+      data = head.getData();
+      head.setNext(null);
+    } else {
+      Node current = head;
+      head = current.getNext();
+      data = current.getData();
+      current.setNext(null);
+    }
+    size--;
+    return data;
+  }
+
+  public int removeIndex(int index) {
+    int data;
+    if (index == size || isEmpty()) {
+      return remove();
+    } else {
+      if (index == 0) {
+        return removeHead();
+      } else {
+        Node current = head;
+        int currentIndex = 0;
+        while (current != null && currentIndex < index - 1) {
+          current = current.getNext();
+          currentIndex++;
+        }
+        assert current != null;
+        data = current.getNext().getData();
+        current.setNext(current.getNext().getNext());
+      }
+      size--;
+      return data;
+    }
+  }
+
   public void display() {
     if (isEmpty()) {
       System.out.println("Linked List is empty.");
