@@ -25,7 +25,7 @@ public class SimpleQueue {
     return size;
   }
 
-  public void add(int element) {
+  public void enQueue(int element) {
     if (isFull()) {
       System.out.println("Queue is full.");
     } else {
@@ -37,7 +37,7 @@ public class SimpleQueue {
     }
   }
 
-  public void delete() {
+  public void deQueue() {
     if (!isEmpty()) {
       if (front >= rear) {
         front = -1;
