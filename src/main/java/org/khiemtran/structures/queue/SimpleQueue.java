@@ -1,4 +1,4 @@
-package org.khiemtran.queue;
+package org.khiemtran.structures.queue;
 
 public class SimpleQueue {
   private int rear;

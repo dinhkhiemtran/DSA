@@ -2,6 +2,7 @@ package org.khiemtran.queue;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.khiemtran.structures.queue.SimpleQueue;
 
 class SimpleQueueTest {
   private SimpleQueue simpleQueue;
