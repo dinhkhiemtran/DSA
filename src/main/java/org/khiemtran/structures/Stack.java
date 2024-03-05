@@ -3,7 +3,7 @@ package org.khiemtran.structures;
 public class Stack {
   private int top;
   private int size;
-  private int[] items;
+  private final int[] items;
 
   public Stack(int capacity) {
     this.top = -1;

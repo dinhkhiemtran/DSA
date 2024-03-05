@@ -3,7 +3,7 @@ package org.khiemtran.structures.queue;
 public class SimpleQueue {
   private int rear;
   private int front;
-  private int[] items;
+  private final int[] items;
   private int size;
 
   public SimpleQueue(int capacity) {
