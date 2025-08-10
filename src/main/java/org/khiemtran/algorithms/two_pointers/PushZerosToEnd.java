@@ -6,11 +6,10 @@ public class PushZerosToEnd {
   public int[] solution(int[] array) {
     int[] temp = new int[array.length];
     Arrays.fill(temp, 0);
-    int k = 0;
+    int i = 0;
     for (int ele : array) {
       if (ele != 0) {
-        temp[k] = ele;
-        k++;
+        temp[i++] = ele;
       }
     }
     return temp;
