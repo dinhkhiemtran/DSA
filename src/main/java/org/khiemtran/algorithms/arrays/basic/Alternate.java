@@ -1,4 +1,4 @@
-package org.khiemtran.algorithms.arrays;
+package org.khiemtran.algorithms.arrays.basic;
 
 public class Alternate {
   public String getAlternateElements(int[] array) {

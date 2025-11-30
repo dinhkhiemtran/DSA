@@ -2,8 +2,7 @@ package org.khiemtran.algorithms.arrays;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.khiemtran.algorithms.arrays.basic.Alternate;
 
 class AlternateTest {
   private final Alternate alternate;
